@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+
+    <style>
+        .color-red{ color: orange; }
+        .is-loading { background: yellow; }
+    </style>
+
+</head>
+
+<body>
+
+<div id="root" class="container">
+    <task-list></task-list>
+</div>
+
+<script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+<script>
+
+    Vue.component('task-list', {
+        template: '<div><task v-for="task in tasks">{{ task.task }}</task></div>',
+
+        data() {
+            return {
+                tasks: [
+                    { task: 'make mloukhiye', complete: true},
+                    { task: 'purr the cat', complete: false},
+                    { task: 'drink tea', complete: false},
+                    { task: 'fix screen', complete: true},
+                ]
+            }
+        }
+
+    });
+
+    Vue.component('task', {
+        template: '<li><slot></slot></li>'
+    });
+
+    new Vue({
+        el: '#root'
+    });
+</script>
+
+</body>
+</html>

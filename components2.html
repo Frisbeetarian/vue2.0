@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
+
+    <style>
+        body {
+            padding-top: 40px;
+        }
+
+        .color-red {
+            color: orange;
+        }
+
+        .is-loading {
+            background: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="root" class="container">
+    <message title="helol deloris" body="yel3an abouki"></message>
+
+    <message title="3meleh dora" body="kabsit allah"></message>
+</div>
+
+<script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+<script>
+    Vue.component('message', {
+        props: ['title', 'body'],
+
+        data(){
+            return {
+                isVisible: true
+            }
+        },
+
+        template: `
+            <article class="message" v-show="isVisible">
+                <div class="message-header">
+                    {{ title }}
+
+                    <button type="button" @click="hideModal">x</button>
+                </div>
+
+                <div class="message-body">
+                    {{ body }}
+                </div>
+            </article>
+        `,
+
+        methods: {
+            hideModal(){
+                this.isVisible = false;
+            }
+        }
+    });
+
+    var app = new Vue({
+        el: '#root',
+
+        data: {},
+
+        methods: {}
+    });
+</script>
+
+</body>
+</html>

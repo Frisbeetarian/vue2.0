@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css">
+
+    <style>
+        body {
+            padding-top: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div id="root" class="container">
+    <progress-view inline-template>
+        <div>
+
+            <h1>Your pgroess thgorusssgh this course is {{ completionRate }}%</h1>
+
+            <p>
+                <button @click="completionRate += 10">Update Completion Rate</button>
+            </p>
+        </div>
+
+    </progress-view>
+</div>
+
+<script src="https://unpkg.com/vue@2.1.8/dist/vue.js"></script>
+
+<script>
+    Vue.component('progress-view', {
+
+        data(){
+            return {
+                completionRate: 51
+            };
+        }
+    });
+
+    var app = new Vue({
+        el: '#root',
+
+        data: {},
+
+        methods: {}
+    });
+</script>
+
+</body>
+</html>
